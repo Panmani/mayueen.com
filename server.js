@@ -1,9 +1,13 @@
+// Node.js for the server of mayueen.com, 182.61.60.9
+// Author: Yueen Ma
+
 var express = require('express');
 var bodyParser = require('body-parser')
 var path = require('path');
 var app = express();
+var exec = require("child_process").exec;
 
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 3000;
 
 function myLogger(req, res, next) {
   if (req.body) {
@@ -15,6 +19,17 @@ function myLogger(req, res, next) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(myLogger)
+
+//=============================== get_courses ===============================
+app.get('/get_courses', function(req, res) {
+  exec("php ./php/courses.php", function(error, stdout, stderr){
+    console.log("php running");
+    console.log(stdout);
+    console.log("--------end of php result--------");
+    res.send(stdout);
+  });
+});
+
 
 //=============================== Files ===============================
 app.get('/', function(req, res) {

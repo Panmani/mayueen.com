@@ -14,11 +14,11 @@ $sql = "SELECT * FROM course_info NATURAL JOIN course_grades;";
 $result = mysqli_query($con,$sql);
 
 while($row = mysqli_fetch_array($result)) {
-	echo "<div class='one_course'>"
+	echo "<div class='one_course'>";
     echo "<h2>" . $row['course_code'] . ":" . $row['course_name'] . "</h2>";
     echo "<h3>Credit: " . $row['credit'] . ", My grade: " . $row['grade'] . "</h3>";
     echo "<p>" . $row['description'] . "</p>";
-    echo "</div>"
+    echo "</div>";
 }
 
 mysqli_close($con);

@@ -1,3 +1,5 @@
+var URL = "182.61.60.9";
+
 $(function(){
 	$("#home").click(function(){
 		$(".nav").find(".active").removeClass("active");
@@ -25,6 +27,27 @@ $(function(){
 		hide_all_sections();
 		$("#Projects").css("display", "block");
 	})
+
+    $.ajax({
+        url: URL + "/get_courses",
+        type: "GET",
+        dataType: false,
+        success: function(response) {
+            if(response['success'] == 'success') {
+                put_account_info(response.payload);
+                currentUser = response.payload.username
+                loginbar = document.getElementById("loginbar")
+                loginbar.style.display = "none"
+                account = document.getElementById("myacc")
+                account.innerHTML = "My Account"
+                account.href="#userprofile"
+                // hide register button
+                document.getElementById("registerButton").style.display = "none";
+                //show log out button
+                document.getElementById("logoutb").style.display = "block";
+            }
+        }
+    });
 })
 
 function hide_all_sections(){
@@ -34,19 +57,19 @@ function hide_all_sections(){
 	$("#Projects").css("display", "none");
 }
 
-function get_courses() {
-    if (window.XMLHttpRequest) {
-        // code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp = new XMLHttpRequest();
-    } else {
-        // code for IE6, IE5
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("txtHint").innerHTML = this.responseText;
-        }
-    };
-    xmlhttp.open("GET","php/courses.php",true);
-    xmlhttp.send();
-}
+// function get_courses() {
+//     if (window.XMLHttpRequest) {
+//         // code for IE7+, Firefox, Chrome, Opera, Safari
+//         xmlhttp = new XMLHttpRequest();
+//     } else {
+//         // code for IE6, IE5
+//         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+//     }
+//     xmlhttp.onreadystatechange = function() {
+//         if (this.readyState == 4 && this.status == 200) {
+//             document.getElementById("txtHint").innerHTML = this.responseText;
+//         }
+//     };
+//     xmlhttp.open("GET","php/courses.php",true);
+//     xmlhttp.send();
+// }
