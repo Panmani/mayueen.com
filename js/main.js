@@ -33,9 +33,7 @@ $(function(){
         type: "GET",
         dataType: false,
         success: function(response) {
-            if(response['success'] == 'success') {
-                console.log(response);
-            }
+        	console.log(response);
         }
     });
 })
