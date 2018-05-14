@@ -7,7 +7,7 @@ var path = require('path');
 var app = express();
 var exec = require("child_process").exec;
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 80;
 
 function myLogger(req, res, next) {
   if (req.body) {

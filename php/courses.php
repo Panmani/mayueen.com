@@ -1,6 +1,7 @@
 <?php
-
-$con = mysqli_connect('182.61.43.149',
+// private: 172.16.0.7
+// public: 182.61.43.149
+$con = mysqli_connect('172.16.0.7',
 	'ianma',
 	'aen777',
 	'courses');
