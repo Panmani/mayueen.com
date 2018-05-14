@@ -23,9 +23,6 @@ app.use(myLogger)
 //=============================== get_courses ===============================
 app.get('/get_courses', function(req, res) {
   exec("php ./php/courses.php", function(error, stdout, stderr){
-    console.log("php running");
-    console.log(stdout);
-    console.log("--------end of php result--------");
     res.send(stdout);
   });
 });
