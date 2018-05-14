@@ -34,6 +34,7 @@ $(function(){
         dataType: false,
         success: function(response) {
         	console.log(response);
+        	document.getElementById("course_details_main").innerHTML = this.responseText;
         }
     });
 })
