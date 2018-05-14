@@ -1,16 +1,15 @@
 <?php
 // private: 172.16.0.7
 // public: 182.61.43.149
-$con = mysqli_connect('172.16.0.7:3306',
-	'ianma',
-	'aen777',
-	'courses');
+$server='172.16.0.7';     
+$username='ianma';     
+$password='aen777';     
+$database='courses';     
 
-if (!$con) {
-    die('Could not connect: ' . mysqli_error($con));
-}
+$con=mssql_connect($server,$username,$password)     
+    or die("Couldn't connect to SQL Server on $server");     
+$db=mssql_select_db($database) or die("Couldn't open database $database");  
 
-mysqli_select_db($con,"ajax_demo");
 $sql = "SELECT * FROM course_info NATURAL JOIN course_grades;";
 $result = mysqli_query($con,$sql);
 
