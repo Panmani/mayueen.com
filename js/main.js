@@ -1,4 +1,4 @@
-var URL = "182.61.60.9";
+var URL = "https://182.61.60.9";
 
 $(function(){
 	$("#home").click(function(){
@@ -34,17 +34,7 @@ $(function(){
         dataType: false,
         success: function(response) {
             if(response['success'] == 'success') {
-                put_account_info(response.payload);
-                currentUser = response.payload.username
-                loginbar = document.getElementById("loginbar")
-                loginbar.style.display = "none"
-                account = document.getElementById("myacc")
-                account.innerHTML = "My Account"
-                account.href="#userprofile"
-                // hide register button
-                document.getElementById("registerButton").style.display = "none";
-                //show log out button
-                document.getElementById("logoutb").style.display = "block";
+                console.log(response);
             }
         }
     });
