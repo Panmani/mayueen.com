@@ -1,4 +1,4 @@
-var URL = "http://182.61.60.9";
+var URL = "http://mayueen.com";
 
 $(function(){
 	$("#home").click(function(){
