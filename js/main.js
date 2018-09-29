@@ -28,15 +28,15 @@ $(function(){
 		$("#Projects").css("display", "block");
 	})
 
-    $.ajax({
-        url: URL + "/get_courses",
-        type: "GET",
-        dataType: false,
-        success: function(response) {
-        	console.log(response);
-        	document.getElementById("course_details_main").innerHTML = response;
-        }
-    });
+    // $.ajax({
+    //     url: URL + "/get_courses",
+    //     type: "GET",
+    //     dataType: false,
+    //     success: function(response) {
+    //     	console.log(response);
+    //     	document.getElementById("course_details_main").innerHTML = response;
+    //     }
+    // });
 })
 
 function hide_all_sections(){
