@@ -1,4 +1,4 @@
-var URL = "http://mayueen.com";
+var URL = "http://cdn.mayueen.com";
 
 $(function(){
 	$("#home").click(function(){
